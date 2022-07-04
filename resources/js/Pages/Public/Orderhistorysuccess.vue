@@ -10,8 +10,23 @@
             We will delivery product soon. Thank You !
       </div>
             <div class="items-center">
-
-                <Link class="text-indigo-400 hover:text-indigo-600" href="/welcome">Back Order Stock</Link> 
+              <div class="font-bold text-slate-700 leading-snug">
+                    Order Code - {{order.order_code}}
+                </div>
+                <div class=" text-slate-700 leading-snug">
+                    Name - {{order.customer_name}}
+                </div>
+                <div class="text-slate-700 leading-snug">
+                    Address - {{order.address}}
+                </div>
+                <div class="text-slate-700 leading-snug">
+                    Phone - {{order.phone}}
+                </div>
+                <div class="text-slate-700 leading-snug">
+                    Total - {{order.total}}
+                </div>
+                 <button class="btn btn-primary" @click="printdata()">Print</button>
+                <Link class="btn btn-success" href="/welcome">Back Order Stock</Link> 
             </div>
     </div>
   </div>
@@ -34,11 +49,20 @@ export default {
       }
     }
   },
+  props: {
+    order: Object,
+  },
   components: {
     Link,
     Head,
     navigation,
     Pagination
+  },
+  methods: {
+    printdata() {
+        window.print();
+    }
   }
+
 }
 </script>

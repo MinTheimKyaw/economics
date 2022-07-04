@@ -58,7 +58,7 @@ Route::post('orderhistory', [WelcomeController::class, 'store'])
     ->middleware('guest');
 
 
-Route::get('/orderhistorysuccess', [WelcomeController::class, 'orderhistorysuccess'])
+Route::get('/orderhistorysuccess/{order}', [WelcomeController::class, 'orderhistorysuccess'])
     ->name('orderhistorysuccess')
     ->middleware('guest');
 

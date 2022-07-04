@@ -123,7 +123,7 @@ class WelcomeController extends Controller
         }
         $updateorder=Order::find($id);
         $updateorder->update(['total' => $total]);
-        return Redirect::route('orderhistorysuccess')->with('error', $error,'success','Your Order Code Number -'.$order_code);
+        return Redirect::route('orderhistorysuccess',['order' => $id])->with('error', $error,'success','Your Order Code Number -'.$order_code);
     }
 
     public function maxordercode()
@@ -145,8 +145,10 @@ class WelcomeController extends Controller
             return 0;
     }
 
-    public function orderhistorysuccess()
+    public function orderhistorysuccess(Order $order)
     {
-        return Inertia::render('Public/Orderhistorysuccess');
+        return Inertia::render('Public/Orderhistorysuccess',[
+            'order' => $order
+        ]);
     }
 }
