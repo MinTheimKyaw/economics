@@ -3,42 +3,27 @@
 
 
 ## Installation
+Install PHP dependencies
 
-Install PHP dependencies:
+-composer install
 
-```sh
-composer install
-```
+Install NPM dependencies
 
-Install NPM dependencies:
+-npm install
 
-```sh
-npm ci
-```
+Build Assets
 
-Build assets:
+-npm run dev
 
-```sh
-npm run dev
-```
+Setup Configuration
 
-Setup configuration:
+-cp .env.example .env
 
-```sh
-cp .env.example .env
-```
+Generate Key
 
-Generate application key:
+-php artisan key:generate
 
-```sh
-php artisan key:generate
-```
-
-Create an SQLite database. You can also use another database (MySQL, Postgres), simply update your configuration accordingly.
-
-```sh
-touch database/database.sqlite
-```
+Database connect
 
 Run database migrations:
 
